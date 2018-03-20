@@ -31,7 +31,6 @@ int* get_productless_array(int *array, int size)
 
 int main(int argc, char** argv)
 {
-	// TODO: Have it select an array from inputs
 	int *arr, *input, count, i, temp;
 
 	printf("Enter number of entries in the array: ");
