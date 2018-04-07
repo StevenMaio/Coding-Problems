@@ -1,7 +1,6 @@
 /*
- * Given two linked lists which do intersect at some point, return the node
+ * Given two linked lists which intersect at some point, return the first node
  * where they intersect
- *
  */
 
 struct linked_list {
