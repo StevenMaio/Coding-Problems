@@ -1,3 +1,5 @@
+from sys import argv
+
 def way_up_n_steps(n, x):
     unique_paths = {0: 0}
 
@@ -25,18 +27,20 @@ def way_up_n_steps_helper(k, x, paths_dict):
         return paths
 
 def main():
-    n = int(input("How many steps do you wish to climb: "))
-    i = int(input("How many different ways can you climb the stairs: "))
+	# Exit the program if there aren't enough arguments
+	if (len(argv) < 2):
+		print('Program must be called in the form problem12.py n x_1 x_2,... x_n')
+		return 
 
-    x = []
+	n = int(argv[1])
+	x = []
 
-    for j in range(i):
-        k = int(input("Enter how many steps can be made in one stride: "))
-        x.append(k)
+	for i in argv[2:]:
+		x.append(int(i))
 
-    val = way_up_n_steps(n, x)
+	val = way_up_n_steps(n, x)
 
-    print("{0} different ways.".format(val))
+	print("{0} different ways.".format(val))
 
 if __name__ == '__main__':
     main()

@@ -1,7 +1,8 @@
 import datetime
+from sys import argv
 
 def surpise():
-	print("SURPRISE")
+	print("Function Call")
 
 def wait_millis(f, duration):
 	seconds = duration / 1000
@@ -20,7 +21,11 @@ def wait_millis(f, duration):
 			return
 
 def main():
-	duration = int(input("How many milliseconds should we wait: "))
+	if (len(argv) < 2):
+		print('Please enter the number of milliseconds')
+		return
+
+	duration = int(argv[1])
 	wait_millis(surpise, duration)
 
 if __name__ == '__main__':

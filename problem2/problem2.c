@@ -31,13 +31,13 @@ int* get_productless_array(int *array, int size)
 
 int main(int argc, char** argv)
 {
-	int *arr, *input, count, i, temp;
+	int *arr, *input, count, i;
 
 	printf("Enter number of entries in the array: ");
 	scanf("%d", &count);
 
 	// Initialize array for input
-	input = (int *)malloc(sizeof(int) * count);
+	input = (int *) malloc(sizeof(int) * count);
 
 	// Ask the user for entries in the array
 	for (i = 0; i < count; i++)

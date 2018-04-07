@@ -11,7 +11,7 @@ def sum_exists(int_arr, k):
 		if k - x in int_dict:
 			return True
 
-		# otherwise, add a member to indicate that x exists
+		# otherwise, add x to the dictionary
 		else:
 			int_dict[x] = 1
 
@@ -22,7 +22,8 @@ def main():
 	count = int(input('How many items: '))
 	numbers = []
 
-	for i in range(count):
+	# Add count integers to numbers
+	while count > 0:
 		numbers.append(int(input('Enter a number: ')))	
 
 	desired_sum = int(input('Enter the desired sum: '))

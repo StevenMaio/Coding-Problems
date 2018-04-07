@@ -1,3 +1,5 @@
+from sys import argv
+
 def find_smallest_pos(int_arr):
     # First, set every entry in int_arr which is 0 to -1
     for i in range(len(int_arr)):
@@ -27,17 +29,14 @@ def find_smallest_pos(int_arr):
 
 # Main function for the user
 def main():
-    number_of_entries = int(input("Number of entries: "))
-    integers = []
+	integers = []
 
-    while(number_of_entries > 0):
-        user_input = int(input("Enter a number: "))
-        integers.append(user_input)
-        number_of_entries -= 1
+	for x in argv[1:]:
+		integers.append(int(x))
 
-    smallest_missing_int = find_smallest_pos(integers)
+	smallest_missing_int = find_smallest_pos(integers)
 
-    print("Lowest missing positive integer: {}".format(smallest_missing_int))
+	print("Lowest missing positive integer: {}".format(smallest_missing_int))
 
 if __name__ == '__main__':
     main()
