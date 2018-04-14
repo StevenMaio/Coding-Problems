@@ -11,9 +11,9 @@ public class IDList {
 
     /**
      * Initialize an instance of IDList whose max capacity is given by the
-      * value of max_size
-       *
-        * @param max_size The maximum size of the instantiated IDList
+     * value of max_size
+	 *
+	 * @param max_size The maximum size of the instantiated IDList
      */
      public IDList(int max_size) {
          this.MAX_SIZE = max_size;
@@ -23,9 +23,9 @@ public class IDList {
 
      /**
       * Adds a new item to the orderIds array, if max capacity is reached,
-       * then the first element is overwritten with the new orderId
-        *
-     * @param orderId The value being added to the orderIds list
+	  * then the first element is overwritten with the new orderId
+	  *
+	  * @param orderId The value being added to the orderIds list
       */
       public void record(int orderId) {
           this.endIndex = (endIndex + 1) % MAX_SIZE;
@@ -41,9 +41,9 @@ public class IDList {
 
       /**
        * Retrieve the i-th from last order id
-        * @param i The value of i
-     * @return The i-th last element in the order
-      */
+	   * @param i The value of i
+	   * @return The i-th last element in the order
+       */
       public int getLast(int i) {
           // Determine if the i-th to last order exists
           if (i > totalOrders || i >= MAX_SIZE)
