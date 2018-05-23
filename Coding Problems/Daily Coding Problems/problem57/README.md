@@ -8,6 +8,6 @@ You can assume that there are no spaces at the ends of the string and that
 there is exactly one space between each word.
 
 ### Running this solution
-To run this solution, type into the command line `python3 problem57.py k x',
+To run this solution, type into the command line `python3 problem57.py k x`,
 where `k` is the value of the paramter in the descrtiption, and `x` refers
 to the string being broken apart.
