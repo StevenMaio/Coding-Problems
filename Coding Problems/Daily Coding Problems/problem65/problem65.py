@@ -1,6 +1,27 @@
 from sys import argv
 from pdb import set_trace
 
+def create_matrix(filename):
+	matrix_file = open(filename, "r")
+	matrix = []
+
+	content = matrix_file.read()
+	content = content.split('\n')
+
+	for elem in content:
+		elem = elem.split()
+		row = []
+
+		for x in elem:
+			row.append(int(x))
+
+		if row:
+			matrix.append(row)
+
+	# Close the file
+	matrix_file.close()
+	return matrix
+
 def spiral_helper(**kwargs):
 	matrix = kwargs['matrix']
 	row = kwargs['row']
@@ -51,13 +72,8 @@ def print_spiral(matrix):
 		num_cols=len(matrix[0]))
 
 def main():
-
-	matrix = [
-		[ 1,  2,  3,  4,  5],
-		[ 6,  7,  8,  9, 10],
-		[11, 12, 13, 14, 15],
-		[16, 17, 18, 19, 20]
-		]
+	filename = argv[1]
+	matrix = create_matrix(filename)
 
 	print_spiral(matrix)
 
