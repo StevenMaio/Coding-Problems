@@ -9,7 +9,7 @@ represents the parameter M in the problem, and `b_i` represent the bishops.
 
 ## Analysis
 Two bishops will be able to attack each other if the difference of their
-coordinates is of the form `(n, n), (n, -n)` where `n` is some integer.
+coordinates is of the form `(n, n)`, `(n, -n)` where `n` is some integer.
 So to check all tuples of bishops, we end up with the number of bishops
 squared checks.
 
