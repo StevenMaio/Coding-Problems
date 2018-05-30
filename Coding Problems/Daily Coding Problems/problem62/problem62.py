@@ -24,7 +24,6 @@ def num_paths(m, n):
 				matrix[i][j] = matrix[i][j+1] + matrix[i][j]
 
 	return matrix[0][0]
-			
 
 def main():
 	m = int(argv[1])
