@@ -57,13 +57,16 @@ def spiral_helper(**kwargs):
 	num_cols -= 2
 
 	spiral_helper(
-		matrix= matrix,
-		row = row,
-		col = col,
-		num_rows = num_rows,
-		num_cols = num_cols)
+		matrix=matrix,
+		row=row,
+		col=col,
+		num_rows=num_rows,
+		num_cols=num_cols)
 
 def print_spiral(matrix):
+	if len(matrix):
+		return
+
 	spiral_helper(
 		matrix=matrix,
 		row=0,
