@@ -1,27 +1,5 @@
 from sys import argv
-
-class DirectedGraph():
-	def __init__(self, nodes, edges):
-		self.length = len(nodes)
-		self.nodes = []
-
-		# Initialize nodes
-		for v in nodes:
-			self.nodes.append(v)
-
-		# Initialze the adjacency matrix
-		self.adjacency_matrix = []
-		for i in range(self.length):
-			row = []
-
-			for j in range(self.length):
-				row.append(0)
-
-			self.adjacency_matrix.append(row)
-
-		# Add the edges to the matrix
-		for e in edges:
-			self.adjacency_matrix[e[0]][e[1]] = 1
+from graph import DirectedGraph, parse_string
 
 def top_sort(d_graph):
 	"""
@@ -44,7 +22,7 @@ def top_sort(d_graph):
 				if j in seq:
 					continue
 
-				if m[j][i] == 1:
+				if m[j][i]:
 					no_incoming_edge = False 
 					break
 
@@ -59,18 +37,7 @@ def top_sort(d_graph):
 	return seq
 
 def main():
-	nodes_string = argv[1].split(',')
-	nodes = []
-
-	for x in nodes_string:
-		nodes.append(int(x))
-
-	edges = []
-	for arg in argv[2:]:
-		arg = arg.split(',')
-		edge = (int(arg[0]), int(arg[1]))
-
-		edges.append(edge)
+	nodes, edges = parse_string(argv[1:])
 
 	graph = DirectedGraph(nodes, edges)
 	sol = top_sort(graph)
