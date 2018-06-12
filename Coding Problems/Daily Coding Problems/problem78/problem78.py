@@ -1,5 +1,4 @@
 from sys import argv
-import pdb
 
 def merge(lists):
 	result = []
@@ -13,6 +12,7 @@ def merge(lists):
 	# Find the smallest first element and push it to result
 	# repeat until all of the lists are empty
 	while not_empty:
+		# Reset not_empty and min_element and min_list
 		not_empty = False
 		min_element = None
 		min_list = None
