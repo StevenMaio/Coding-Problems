@@ -1,3 +1,4 @@
+#!/user/bin/env python3
 from sys import argv
 from random import randint
 
