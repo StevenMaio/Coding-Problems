@@ -1,7 +1,7 @@
-package jcs.datastructures.stack;
+package jcs.datastructure.stack;
 
-import jcs.exceptions.EmptyCollectionException;
-import jcs.datastructures.linkedlist.SinglyLinkedList;
+import jcs.exception.EmptyCollectionException;
+import jcs.datastructure.linkedlist.SinglyLinkedList;
 
 public class SLLStack<T> implements Stack<T> {
 

@@ -1,4 +1,4 @@
-package jcs.datastructures;
+package jcs.datastructure;
 
 public interface Collection<T> {
 

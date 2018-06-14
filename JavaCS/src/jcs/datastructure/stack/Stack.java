@@ -1,7 +1,7 @@
-package jcs.datastructures.stack;
+package jcs.datastructure.stack;
 
-import jcs.exceptions.EmptyCollectionException;
-import jcs.datastructures.Collection;
+import jcs.exception.EmptyCollectionException;
+import jcs.datastructure.Collection;
 
 public interface Stack<T> extends Collection<T> {
 

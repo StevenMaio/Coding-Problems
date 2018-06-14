@@ -1,4 +1,4 @@
-package jcs.datastructures.linkedlist;
+package jcs.datastructure.linkedlist;
 
 /**
  * An implementation of a singly linked list. Keeps a reference to the head
@@ -75,12 +75,12 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
      * Handles inserting a new value into the linked list at index
      * @param index The index where the element is inserted
      * @param value The value being inserted into the linked list
-     * @throws IllegalArgumentException Indicates if the value of index is
+     * @throws IndexOutOfBoundsException Indicates if the value of index is
      * invalid.
      */
-    public void insert(int index, T value) throws IllegalArgumentException {
+    public void insert(int index, T value) throws IndexOutOfBoundsException{
         if (index < 0 || index > this.size)
-            throw new IllegalArgumentException();
+            throw new IndexOutOfBoundsException();
 
         SLLNode<T> node, cursor;
         node = new SLLNode<>(value);
@@ -146,13 +146,19 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
      * @param index The index of the node being removed from the linked list.
      * @return true if the operation was successful, and false otherwise.
      */
-    public boolean remove(int index) throws IllegalArgumentException {
+    public boolean remove(int index) throws IndexOutOfBoundsException{
         if (index < 0 || index >= size)
-            throw new IllegalArgumentException();
+            throw new IndexOutOfBoundsException();
 
         // Handle the case of index being 0
         if (index == 0) {
             this.head = head.next;
+            this.size--;
+
+            // Handle the case of deleting the whole queue
+            if (isEmpty())
+                this.tail = null;
+
             return true;
         }
 
@@ -165,12 +171,17 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
 
         cursor.next = cursor.next.next;
 
+        this.size--;
+
+        if (isEmpty())
+            this.tail = null;
+
         return true;
     }
 
-    public T get(int index) throws IllegalArgumentException {
+    public T get(int index) throws IndexOutOfBoundsException{
         if (index < 0 || index >= size)
-            throw new IllegalArgumentException();
+            throw new IndexOutOfBoundsException();
 
         SLLNode<T> cursor = head;
 

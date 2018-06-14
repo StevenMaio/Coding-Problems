@@ -1,7 +1,7 @@
-package jcs.datastructures.queue;
+package jcs.datastructure.queue;
 
-import jcs.datastructures.linkedlist.SinglyLinkedList;
-import jcs.exceptions.EmptyCollectionException;
+import jcs.datastructure.linkedlist.SinglyLinkedList;
+import jcs.exception.EmptyCollectionException;
 
 public class SSLQueue<T> implements Queue<T> {
 
@@ -40,12 +40,13 @@ public class SSLQueue<T> implements Queue<T> {
      * @return The first element of the queue
      * @throws EmptyCollectionException Indicates that the queue is empty
      */
-    public T dequeue() throws EmptyCollectionException {
-        if (isEmpty())
-            throw new EmptyCollectionException();
+    public T dequeue(){
+//        if (isEmpty())
+//            throw new EmptyCollectionException();
 
         T data = q.get(0);
         q.remove(0);
+
         return data;
     }
 
@@ -54,9 +55,9 @@ public class SSLQueue<T> implements Queue<T> {
      * @return The first element of the queue
      * @throws EmptyCollectionException Indicates that the queue is empty
      */
-    public T peek() throws EmptyCollectionException {
-        if (isEmpty())
-            throw new EmptyCollectionException();
+    public T peek() {
+//        if (isEmpty())
+//            throw new EmptyCollectionException();
 
         return q.get(0);
     }
