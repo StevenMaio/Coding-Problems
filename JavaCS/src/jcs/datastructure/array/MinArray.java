@@ -1,14 +1,18 @@
 package jcs.datastructure.array;
 
+/**
+ * A wrapper interface for a normal array. To be honest, it's less useful
+ * than a normal array, but I wanted to test merge sort on different
+ * implementations of arrays.
+ * @param <T>
+ */
 public class MinArray<T> implements Array<T> {
 
     private final int CAPACITY;
-    private int size;
     private T[] arr;
 
     public MinArray(int capacity) {
         this.CAPACITY = capacity;
-        this.size = 0;
         this.arr = (T[]) new Object[capacity];
     }
 
@@ -35,6 +39,7 @@ public class MinArray<T> implements Array<T> {
 
     @Override
     public boolean isEmpty() {
-        return size == 0;
+        return false;
     }
+
 }

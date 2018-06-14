@@ -5,9 +5,6 @@ import jcs.datastructure.queue.Queue;
 import jcs.datastructure.queue.SSLQueue;
 
 public class MergeSort {
-    public static void main(String[] args) {
-
-    }
 
     public static void sort(Array<Integer> arr) throws IllegalArgumentException {
         mergeSortHelper(arr, 0, arr.size() - 1);
@@ -36,6 +33,7 @@ public class MergeSort {
                 q.queue(right);
             }
 
+            // Return a queue of the sorted elements
             return q;
         }
 
@@ -48,6 +46,7 @@ public class MergeSort {
 
         int index = start;
 
+        // Merge the two queues
         while (index <= end) {
             if (leftQ.isEmpty()) {
                 arr.set(index, rightQ.dequeue());
@@ -70,6 +69,7 @@ public class MergeSort {
             index++;
         }
 
+        // Repopulate a new queue and return it
         Queue<Integer> resQ = new SSLQueue<>();
 
         for (int i = start; i <= end; i++)

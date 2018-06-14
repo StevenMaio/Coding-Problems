@@ -37,7 +37,7 @@ public class SLLStack<T> implements Stack<T> {
     /**
      * Adds <code>data</code> to the stack consequently increasing the size 
      * of the stack by one.
-     * @param <T> The value being pushed onto the stack
+     * @param data The value being pushed onto the stack
      */
     public void push(T data) {
         stack.insert(0, data);
