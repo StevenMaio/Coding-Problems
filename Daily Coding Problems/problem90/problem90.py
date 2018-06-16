@@ -10,14 +10,24 @@ def thing(l, n):
     return temp[randIndex]
 
 def main():
-    n = int( argv[1] )
-    l = []
+    if len(argv) < 2:
+        print('Not enough arguments')
+        return
 
-    for x in argv[2:]:
-        l.append( int(x) )
+    # Handle the case of the user using invalid input
+    try:
+        n = int( argv[1] )
+        l = []
 
-    sol = thing(l, n)
-    print(sol)
+        for x in argv[2:]:
+            l.append( int(x) )
+
+        sol = thing(l, n)
+        print(sol)
+    
+    except:
+        print('Invalid input')
+        return
 
 if __name__ == '__main__':
     main()
