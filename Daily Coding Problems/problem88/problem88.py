@@ -7,12 +7,19 @@ def div(x, y):
 		return 1 + div(x - y, y)
 
 def main():
-	x = int( argv[1] )
-	y = int( argv[2] )
+	if len(argv) != 3:
+		print('Error : incorrect number of arguments')
+		return
 
-	sol = div(x, y)
+	try:
+		x = int( argv[1] )
+		y = int( argv[2] )
 
-	print(sol)
+		sol = div(x, y)
+		print(sol)
+
+	except:
+		print('Error : invalid input')
 
 if __name__ == '__main__':
 	main()

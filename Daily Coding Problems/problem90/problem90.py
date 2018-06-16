@@ -11,23 +11,19 @@ def thing(l, n):
 
 def main():
     if len(argv) < 2:
-        print('Not enough arguments')
+        print('Error : Not enough arguments')
         return
 
     # Handle the case of the user using invalid input
     try:
         n = int( argv[1] )
-        l = []
-
-        for x in argv[2:]:
-            l.append( int(x) )
+        l = [int(x) for x in argv[2:]]
 
         sol = thing(l, n)
         print(sol)
     
     except:
-        print('Invalid input')
-        return
+        print('Error : Invalid input')
 
 if __name__ == '__main__':
     main()
