@@ -81,6 +81,7 @@ def make_move(q, board, n):
 		x_cord -= 1
 		y_cord += 1
 
+	# This is to compensate for adding one 4 times to the queen's piece
 	board[q[0]][q[1]] -= 3
 
 def unmake_move(q, board, n):
