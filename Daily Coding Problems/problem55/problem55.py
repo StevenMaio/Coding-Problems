@@ -1,17 +1,19 @@
 from random import randint
 
-chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-
-def random_short():
-    short = ''
-
-    for i in range(6):
-        index = randint(0, len(chars) - 1)
-        short += chars[index]
-
-    return short
-
 class URLShortener:
+    # Constant for generating keys
+    chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+    
+    @staticmethod
+    def random_short():
+        short = ''
+
+        for i in range(6):
+            index = randint(0, len(URLShortener.chars) - 1)
+            short += URLShortener.chars[index]
+
+        return short
+    
     def __init__(self):
         self.short_to_url = {}
         self.url_to_short = {}
@@ -27,13 +29,13 @@ class URLShortener:
 
         except:
             # Create a short and return it
-            short = random_short()
+            short = URLShortener.random_short()
             uniq_short = False
 
             # Handle the case of the short being already in use
             while not uniq_short:
                 if short in self.short_to_url.keys():
-                    short = random_short()
+                    short = URLShortener.random_short()
                 else:
                     uniq_short = True
 
@@ -79,7 +81,7 @@ def main():
 
         elif command == 'shorten':
             if len(line) != 2:
-                print('Error : shorten requires a url arguments')
+                print('Error : shorten requires a url argument')
                 continue
 
             url = line[1]
@@ -88,7 +90,7 @@ def main():
 
         elif command == 'restore':
             if len(line) != 2:
-                print('Error : restore requires a short arguments')
+                print('Error : restore requires a short argument')
                 continue
 
             short = line[1]
