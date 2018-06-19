@@ -1,15 +1,25 @@
+# I can't take credit for this
+from sys import argv
+
 def cons(a, b):
 	return lambda f: f(a,b)
 
-def car(pair):
-	return pair[0]
+def car(f):
+	return f(lambda a, b: a)
 
-def cdr(pair):
-	return pair[-1]
+def cdr(f):
+	return f(lambda a, b: b)
 
 def main():
+	if len(argv) != 3:
+		print('Error : program requires 3 arguments')
+		return
 
-	print((cons(1,1))(1,1))
+	x = argv[1]
+	y = argv[2]
+
+	print(car(cons(x, y)))
+	print(cdr(cons(x, y)))
 	
-if __name__ == '__name__':
+if __name__ == '__main__':
 	main()
