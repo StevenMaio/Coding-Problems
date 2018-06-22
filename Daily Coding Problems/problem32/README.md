@@ -6,3 +6,7 @@ of any currency, so that you can end up with some amount greater than A of
 that currency.
 
 There are no transaction costs and you can trade fractional quantities.
+
+## Solution
+To use this solution, enter `python problem32.py filename` where `filename`
+refers to the file that contains the matrix described above.
