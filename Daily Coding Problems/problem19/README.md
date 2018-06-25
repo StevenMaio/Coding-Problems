@@ -11,5 +11,6 @@ To use this solution, enter `python problem19.py filename` where `filename`
 correspeonds to the name of the file which contains our price matrix.
 
 It's worth noting that this solution doesn't really work well with repeated
-values for one house. To further elaborate, if `h` is a house then no two
-colors `c1`, `c2` will have the same cost for house `h`.
+values for cost a color for a particular house. To further elaborate, if `h`
+is a house then no two colors `c1`, `c2` will have the same cost for house
+`h`.
