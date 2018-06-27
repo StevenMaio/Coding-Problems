@@ -16,7 +16,7 @@ def get_candidates(seq, c, char_m):
 	return [x for x in char_m[c] if is_adjacent(p, x)]
 
 def backtrack(seq, i, s, n, char_m, board):
-	if i == len(s):
+	if i == n:
 		return True
 
 	c = s[i]
