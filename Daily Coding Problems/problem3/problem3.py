@@ -1,5 +1,4 @@
 from sys import argv
-import pdb
 
 class BinTree():
 	def __init__(self, data):

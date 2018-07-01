@@ -142,6 +142,9 @@ def main():
 	filename = argv[1]
 	root = deseriallize(filename)
 
+	# Tick tock
+	def 
+
 	sol = count_unival_helper(root)[1]
 	print(sol)
 

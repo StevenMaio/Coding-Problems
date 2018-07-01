@@ -1,4 +1,4 @@
-# I can't take credit for this
+# I can't take credit for this nor do I quite understand what is happening here
 from sys import argv
 
 def cons(a, b):

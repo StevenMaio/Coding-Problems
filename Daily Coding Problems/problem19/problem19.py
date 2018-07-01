@@ -1,25 +1,5 @@
 from sys import argv
-
-def create_matrix(filename):
-	matrix_file = open(filename, "r")
-	matrix = []
-
-	content = matrix_file.read()
-	content = content.split('\n')
-
-	for elem in content:
-		elem = elem.split()
-		row = []
-
-		for x in elem:
-			row.append(int(x))
-
-		if row:
-			matrix.append(row)
-
-	# Close the file
-	matrix_file.close()
-	return matrix
+from matrix.util import create_int_matrix
 
 def opt_homes(price_mat, n):
     # The opt dict for the houses 
@@ -75,7 +55,7 @@ def main():
 
     try:
         filename = argv[1]
-        m = create_matrix(filename)
+        m = create_int_matrix(filename)
         n = len(m)
 
         sol = opt_homes(m, n)
