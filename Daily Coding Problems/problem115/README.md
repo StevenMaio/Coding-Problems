@@ -11,9 +11,9 @@ To use this solution enter `python problem115.py s_file t_file` wherein
 `s_file` is the name of the file containing `s` and `t_file` is the name
 of the name containing `t`.
 
-**Sample tests**
-`python problem115.py input1.txt input2.txt` => `False`
-`python problem115.py input1.txt input3.txt` => `True`
+**Sample tests**  
+`python problem115.py input1.txt input2.txt` => `False`  
+`python problem115.py input1.txt input3.txt` => `True`  
 `python problem115.py input1.txt input4.txt` => `True`
 
 I also realized that there isn't any insight as to how `==` works for two
