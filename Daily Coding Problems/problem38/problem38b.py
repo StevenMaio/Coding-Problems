@@ -1,24 +1,16 @@
 from sys import argv
-import pdb
+from algorithm import backtrack
 
+'''
+This solution uses a template I created for backtracking. This is just the
+code from the other solution changed so that it fits the template
+'''
 
 def count_queens(n):
-	def is_sol(queens, n, board):
-		if len(queens) == n:
-			for q in queens:
-				x = q[0]
-				y = q[1]
 
-				# If there is only one queen threatening that spot, then we're good
-				if board[x][y] != 1:
-					return False 
-				
-			return True
+	def generate_candidates(queens):
+		board = data['board']
 
-		else:
-			return False
-
-	def constr_cand(board, n, a):
 		x = None
 		y = None
 
@@ -38,16 +30,21 @@ def count_queens(n):
 				if board[i][j] == 0:
 					coord = (i, j)
 					candidates.append(coord)
-				
+
 		return candidates
 
-	def make_move(q, board, n):
+	def make_move(queens, candidate):
+		board = data['board']
+		n = data['n']
+
+		queens.append(candidate)
+		q = queens[-1]
 
 		# Populate the horizontal
 		for i in range(n):
 			x_cord = (q[0] + i) % n
 			y_cord = q[1]
-			board[x_cord][y_cord] += 1 
+			board[x_cord][y_cord] += 1
 
 		# Populate the vertical
 		for i in range(n):
@@ -86,12 +83,18 @@ def count_queens(n):
 		# This is to compensate for adding one 4 times to the queen's piece
 		board[q[0]][q[1]] -= 3
 
-	def unmake_move(q, board, n):
+	def unmake_move(queens, candidate):
+		board = data['board']
+		n = data['n']
+
+		q = queens[-1]
+		queens.remove(candidate)
+
 		# Populate the horizontal
 		for i in range(n):
 			x_cord = (q[0] + i) % n
 			y_cord = q[1]
-			board[x_cord][y_cord] -= 1 
+			board[x_cord][y_cord] -= 1
 
 		# Populate the vertical
 		for i in range(n):
@@ -129,34 +132,22 @@ def count_queens(n):
 
 		board[q[0]][q[1]] += 3
 
-	def backtrack(a, board, n):
-		if len(a) > n:
-			return 0
+	def check_solution(queens):
+		n = data['n']
 
-		count = 0
-
-		# pdb.set_trace()
-		if is_sol(a, n, board):
-			count = 1
-			return count
-
+		if len(queens) == n:
+			return True
 		else:
-			candidates = constr_cand(board, n, a)
+			return False
 
-			for q in candidates:
-				a.append(q)
-				make_move(q, board, n)
-				count += backtrack(a, board, n)
-				unmake_move(q, board, n)
-				a.remove(q)
-
-			return count
-
-	# The actual function
+	def process_solution(queens):
+		data['count'] += 1
+	
+	# Construct the board
 	board = []
 	candidates = []
+	
 	a = []
-
 	for i in range(n):
 		row = []
 
@@ -169,7 +160,24 @@ def count_queens(n):
 
 		board.append(row)
 
-	return backtrack(a, board, n)
+	data = {
+		'n': n,
+		'board': board,
+		'count': 0
+	}
+
+	functions = {
+		'check_solution' : check_solution,
+		'process_solution' : process_solution,
+		'generate_candidates' : generate_candidates,
+		'do_move' : make_move,
+		'undo_move' : unmake_move,
+	}
+
+	# Perform backtracking
+	backtrack(a, data, functions)
+
+	return data['count']
 
 def main():
 	# Handle user not entering enough input
