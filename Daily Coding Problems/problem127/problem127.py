@@ -78,17 +78,25 @@ class NumberLL:
 
 		return s
 
+	def toInt(self):
+		s = self.data
+
+		if self.next:
+			s += 10 * self.next.toInt()
+
+		return s
+
 
 def main():
 	x = int(argv[1])
 	y = int(argv[2])
 
-	x = NumberLL.fromInt(x)
-	y = NumberLL.fromInt(y)
-	z = x + y
+	x_ll = NumberLL.fromInt(x)
+	y_ll = NumberLL.fromInt(y)
+	z = x_ll + y_ll
 
+	assert(z.toInt() == x+y)
 	print('{} + {} = {}'.format(x, y, z))
-	print(z.sumDigits())
 
 if __name__ == '__main__':
 	main()
