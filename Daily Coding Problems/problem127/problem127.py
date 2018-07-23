@@ -8,10 +8,8 @@ class NumberLL:
 	@staticmethod
 	def fromInt(n):
 		# If n is zero, create a 
-		if n == 0:
-			return NumberLL(0)
-		elif n == 1:
-			return NumberLL(1)
+		if 0 <= n < 10:
+			return NumberLL(n)
 		else:
 			r = n % 10
 			n //= 10
