@@ -2,17 +2,17 @@ public abstract class DoubleSingleton {
 
 	private static DoubleSingleton firstSingleton;
 	private static DoubleSingleton secondSingleton;
-	private static boolean getSecond;
+	private static boolean getFirst = true;
 
 	private DoubleSingleton() {}
 
 	public DoubleSingleton getSingleton() {
 		if (firstSingleton == null || secondSingleton == null) {
-			firstSingleton = new DoubleSingleton();
-			secondSingleton = new DoubleSingleton();
+			DoubleSingleton.firstSingleton = new DoubleSingleton();
+			DoubleSingleton.secondSingleton = new DoubleSingleton();
 		}
 
-		DoubleSingleton.getSecond = !getSecond;
-		return (getSecond) ? secondSingleton : firstSingleton;
+		DoubleSingleton.getFirst = !getFirst;
+		return (getFirst) ? firstSingleton : secondSingleton;
 	}
 }
