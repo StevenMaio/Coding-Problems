@@ -10,8 +10,7 @@ def interleave(stack):
 		x = stack.pop(-1)
 
 		if len(stack) == 0:
-			s.append(x)
-			s.append()
+			stack.append(x)
 			break
 
 	# Check to see if the length of 
@@ -27,7 +26,7 @@ def interleave(stack):
 		y = q.pop(0)
 
 		while not y is z:
-			a.append(y)
+			q.append(y)
 
 		stack.append(z)
 
